@@ -1,13 +1,10 @@
 import { Router } from "express";
-import VerifyToken from "@/middlewares/verifyToken";
+
+import ResidentesController from "@/controllers/ResidentesControllers";
 
 const routes = Router();
 
-routes.get("/status", (req, res) => {
-  return res.json({ servidor: "Servidor ativo!" });
-});
-
-// All of the following routes passed the 'VerifyToken' function before the source function
-routes.use(VerifyToken);
+routes.get("/residentes", ResidentesController.index);
+routes.post("/residentes", ResidentesController.store);
 
 export default routes;

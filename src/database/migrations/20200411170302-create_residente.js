@@ -2,32 +2,43 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("quartos", {
+    return queryInterface.createTable("residentes", {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
         allowNull: false
       },
-      quantidade_cama: {
-        type: Sequelize.INTEGER,
+      nome: {
+        type: Sequelize.STRING,
         allowNull: false
       },
-      tipo: {
+      cpf: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      sexo: {
         type: Sequelize.BOOLEAN,
         allowNull: true
       },
-      quantidade_pesoa_max: {
+      rg: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      idade: {
         type: Sequelize.INTEGER,
         allowNull: true
       },
-      quantidade_pesoa: {
-        type: Sequelize.INTEGER,
+      telefone: {
+        type: Sequelize.STRING,
         allowNull: true
       },
-      numero_quarto: {
+      quarto_id: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        // allowNull: false,
+        references: { model: "quartos", key: "id" }
+        // onUpdate: "CASCADE",
+        // onDelete: "SET NULL"
       },
       created_at: {
         type: Sequelize.DATE,
@@ -41,6 +52,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("quartos");
+    return queryInterface.dropTable("residentes");
   }
 };

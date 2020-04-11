@@ -1,8 +1,8 @@
 import { Quarto } from "@/models";
-import Truncate from "#/utils/truncate";
+import { Truncate } from "#/utils/truncate";
 
-describe("User", () => {
-  beforeEach(async () => {
+describe("Quarto", () => {
+  afterEach(async () => {
     await Truncate();
   });
 
@@ -15,6 +15,6 @@ describe("User", () => {
       numero_quarto: 81
     });
 
-    expect(quarto.id).toBe(1);
+    expect(quarto).toHaveProperty("id");
   });
 });

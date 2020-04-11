@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "dev": "NODE_ENV=development nodemon src/server.js",
     "build": "sucrase ./src -d ./dist --transforms imports",
     "eslintify": "yarn eslint --fix src --ext .js",
     "start": "node dist/",
@@ -33,11 +33,14 @@
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "factory-girl": "^5.0.4",
+    "faker": "^4.1.0",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "sequelize-cli": "^5.5.1",
     "sqlite3": "^4.1.1",
     "sucrase": "^3.12.1",
+    "supertest": "^4.0.2",
     "tsconfig-paths": "^3.9.0"
   }
 }

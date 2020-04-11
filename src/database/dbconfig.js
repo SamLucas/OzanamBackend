@@ -15,7 +15,6 @@ const ConfigEnvironment = {
     storage: "./src/database/db.sqlite",
     ...Dafault
   },
-
   test: {
     dialect: "sqlite",
     storage: "./__tests__/db_test.sqlite",

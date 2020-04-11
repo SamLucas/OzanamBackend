@@ -7,10 +7,5 @@ module.exports = (sequelize, DataTypes) => {
     numero_quarto: DataTypes.INTEGER
   });
 
-  // Quarto.hasOne("Residente", {
-  //   foreignKey: "quarto_id",
-  //   as: "quartos"
-  // });
-
   return Quarto;
 };

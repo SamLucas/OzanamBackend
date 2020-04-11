@@ -15,7 +15,7 @@ class AppController {
     this.express.use(express.json());
     this.express.use(morgan(process.env.MORGAN_CONFIG));
     this.express.use(cors());
-    this.express.use(process.env.PREFIX, routes);
+    // this.express.use(process.env.PREFIX, routes);
   }
 
   routes() {

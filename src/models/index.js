@@ -40,4 +40,17 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+// Models
+db.Quartos = require("./Quarto")(sequelize, Sequelize);
+db.Residentes = require("./Residente")(sequelize, Sequelize);
+
+// Relations
+db.Quartos.belongsTo(db.Residentes, {
+  foreignKey: "id"
+});
+
+db.Residentes.belongsTo(db.Quartos, {
+  foreignKey: "quarto_id"
+});
+
 module.exports = db;
