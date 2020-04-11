@@ -2,8 +2,13 @@ import app from "@/app";
 import Request from "supertest";
 import Moock from "#/factories";
 import faker from "faker";
+import { Truncate } from "#/utils/truncate";
 
 describe("Resisdentes", () => {
+  afterEach(async () => {
+    await Truncate();
+  });
+
   it("should receive linst all resindents.", async () => {
     const response = await Request(app)
       .get("/residentes")
@@ -22,7 +27,7 @@ describe("Resisdentes", () => {
   };
 
   it("should cadastre a residents with receive data valid.", async () => {
-    const { id } = await Moock.factory.create("Quarto");
+    const { id } = await Moock.factory.create("Quartos");
 
     const response = await Request(app)
       .post("/residentes")

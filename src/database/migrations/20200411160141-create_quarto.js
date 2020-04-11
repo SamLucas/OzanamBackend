@@ -15,7 +15,7 @@ module.exports = {
       },
       tipo: {
         type: Sequelize.BOOLEAN,
-        allowNull: true
+        allowNull: false
       },
       quantidade_pesoa_max: {
         type: Sequelize.INTEGER,
@@ -27,7 +27,7 @@ module.exports = {
       },
       numero_quarto: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: false
       },
       created_at: {
         type: Sequelize.DATE,

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Quarto = sequelize.define("Quarto", {
+  const Quartos = sequelize.define("Quartos", {
     quantidade_cama: DataTypes.INTEGER,
     tipo: DataTypes.BOOLEAN,
     quantidade_pesoa_max: DataTypes.INTEGER,
@@ -7,5 +7,5 @@ module.exports = (sequelize, DataTypes) => {
     numero_quarto: DataTypes.INTEGER
   });
 
-  return Quarto;
+  return Quartos;
 };

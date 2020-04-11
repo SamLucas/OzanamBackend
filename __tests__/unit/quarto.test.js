@@ -1,13 +1,13 @@
-import { Quarto } from "@/models";
+import { Quartos } from "@/models";
 import { Truncate } from "#/utils/truncate";
 
-describe("Quarto", () => {
+describe("Quartos", () => {
   afterEach(async () => {
     await Truncate();
   });
 
   it("should create a new bedroom", async () => {
-    const quarto = await Quarto.create({
+    const quarto = await Quartos.create({
       quantidade_cama: 2,
       tipo: true,
       quantidade_pesoa_max: 5,

@@ -41,16 +41,11 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 // Models
-db.Quartos = require("./Quarto")(sequelize, Sequelize);
-db.Residentes = require("./Residente")(sequelize, Sequelize);
+db.Quartos = require("./Quartos")(sequelize, Sequelize);
+db.Residentes = require("./Residentes")(sequelize, Sequelize);
 
 // Relations
-db.Quartos.belongsTo(db.Residentes, {
-  foreignKey: "id"
-});
-
-db.Residentes.belongsTo(db.Quartos, {
-  foreignKey: "quarto_id"
-});
+// db.Quartos.belongsTo(db.Residentes);
+db.Residentes.belongsTo(db.Quartos);
 
 module.exports = db;

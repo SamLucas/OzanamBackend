@@ -1,8 +1,8 @@
 import faker from "faker";
 import { factory } from "factory-girl";
-import { Residente, Quarto } from "@/models";
+import { Residentes, Quartos } from "@/models";
 
-factory.define("Residente", Residente, {
+factory.define("Residentes", Residentes, {
   nome: faker.name.findName(),
   cpf: "233.342.242-30",
   sexo: true,
@@ -12,7 +12,7 @@ factory.define("Residente", Residente, {
   quarto_id: faker.random.number()
 });
 
-factory.define("Quarto", Quarto, {
+factory.define("Quartos", Quartos, {
   tipo: true,
   quantidade_cama: faker.random.number(),
   quantidade_pesoa_max: faker.random.number(),

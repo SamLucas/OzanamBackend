@@ -1,6 +1,6 @@
-import { Residente, Residentes, Quartos } from "@/models";
+import { Residentes, Quartos } from "@/models";
 
-class SessionController {
+class ResidentesControllers {
   async index(req, res) {
     const residentes = await Residentes.findAll({
       include: [{ model: Quartos }]
@@ -13,9 +13,9 @@ class SessionController {
     const { nome, cpf, sexo, rg, idade, telefone, quarto_id } = req.body;
 
     const quarto = await Quartos.findOne({ where: { id: quarto_id } });
-    if (!quarto) res.status(401).json({ message: "Bedroom not find." });
+    if (!quarto) return res.status(401).json({ message: "Bedroom not find." });
 
-    const residente = await Residente.create({
+    const residente = await Residentes.create({
       nome,
       cpf,
       sexo,
@@ -25,8 +25,8 @@ class SessionController {
       quarto_id
     });
 
-    return res.send(residente);
+    return res.json({ residente });
   }
 }
 
-export default new SessionController();
+export default new ResidentesControllers();

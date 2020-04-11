@@ -1,13 +1,13 @@
-import { Residente, Quarto } from "@/models";
+import { Residentes, Quartos } from "@/models";
 import { Truncate } from "#/utils/truncate";
 
-describe("Residente", () => {
+describe("Residentes", () => {
   afterEach(async () => {
     await Truncate();
   });
 
   it("should create a new resident", async () => {
-    const { id } = await Quarto.create({
+    const { id } = await Quartos.create({
       quantidade_cama: 2,
       tipo: true,
       quantidade_pesoa_max: 5,
@@ -15,7 +15,7 @@ describe("Residente", () => {
       numero_quarto: 81
     });
 
-    const residente = await Residente.create({
+    const residente = await Residentes.create({
       nome: "asldçkasd",
       cpf: "ewe9r08we",
       sexo: false,
@@ -24,9 +24,6 @@ describe("Residente", () => {
       telefone: "2930482938402",
       quarto_id: id
     });
-
-    // const data = await Residente.findAll({ include: [{ model: Quarto }] });
-    // console.log(data);
 
     expect(residente).toHaveProperty("id");
   });
