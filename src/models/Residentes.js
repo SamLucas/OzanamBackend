@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     sexo: DataTypes.BOOLEAN,
     rg: DataTypes.STRING,
     idade: DataTypes.INTEGER,
-    telefone: DataTypes.STRING
+    telefone: DataTypes.STRING,
+    quarto_id: DataTypes.UUID
   });
 
   return Residentes;

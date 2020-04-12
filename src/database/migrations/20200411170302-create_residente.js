@@ -34,11 +34,8 @@ module.exports = {
         allowNull: true
       },
       quarto_id: {
-        type: Sequelize.INTEGER,
-        // allowNull: false,
-        references: { model: "quartos", key: "id" }
-        // onUpdate: "CASCADE",
-        // onDelete: "SET NULL"
+        type: Sequelize.UUID,
+        allowNull: true
       },
       created_at: {
         type: Sequelize.DATE,

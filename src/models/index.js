@@ -45,7 +45,7 @@ db.Quartos = require("./Quartos")(sequelize, Sequelize);
 db.Residentes = require("./Residentes")(sequelize, Sequelize);
 
 // Relations
-// db.Quartos.belongsTo(db.Residentes);
 db.Residentes.belongsTo(db.Quartos);
+db.Quartos.hasMany(db.Residentes);
 
 module.exports = db;

@@ -6,7 +6,7 @@ import faker from "faker";
 import { Truncate } from "#/utils/truncate";
 
 describe("Quartos", () => {
-  afterEach(async () => {
+  beforeEach(async () => {
     await Truncate();
   });
 

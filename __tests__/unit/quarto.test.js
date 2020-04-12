@@ -2,7 +2,7 @@ import { Quartos } from "@/models";
 import { Truncate } from "#/utils/truncate";
 
 describe("Quartos", () => {
-  afterEach(async () => {
+  beforeEach(async () => {
     await Truncate();
   });
 

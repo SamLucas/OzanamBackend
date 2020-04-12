@@ -5,16 +5,8 @@ import faker from "faker";
 import { Truncate } from "#/utils/truncate";
 
 describe("Resisdentes", () => {
-  afterEach(async () => {
+  beforeEach(async () => {
     await Truncate();
-  });
-
-  it("should receive linst all resindents.", async () => {
-    const response = await Request(app)
-      .get("/residentes")
-      .then(res => res.body);
-
-    expect(Array.isArray(response)).toBe(true);
   });
 
   const dataResident = {
@@ -27,11 +19,11 @@ describe("Resisdentes", () => {
   };
 
   it("should cadastre a residents with receive data valid.", async () => {
-    const { id } = await Moock.factory.create("Quartos");
+    const quarto = await Moock.factory.create("Quartos");
 
     const response = await Request(app)
       .post("/residentes")
-      .send({ ...dataResident, quarto_id: id });
+      .send({ ...dataResident, quarto_id: quarto.id });
 
     expect(response.status).toBe(200);
   });
@@ -42,5 +34,13 @@ describe("Resisdentes", () => {
       .send({ ...dataResident, quarto_id: -1 });
 
     expect(response.status).toBe(401);
+  });
+
+  it("should receive linst all resindents.", async () => {
+    const response = await Request(app)
+      .get("/residentes")
+      .then(res => res.body);
+
+    expect(Array.isArray(response)).toBe(true);
   });
 });
