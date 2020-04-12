@@ -2,9 +2,9 @@ import { Residentes, Quartos } from "@/models";
 import { Truncate } from "#/utils/truncate";
 
 describe("Residentes", () => {
-  beforeEach(async () => {
-    await Truncate();
-  });
+  // beforeEach(async () => {
+  //   await Truncate();
+  // });
 
   it("should create a new resident", async () => {
     const { id } = await Quartos.create({

@@ -3,9 +3,9 @@ import Moock from "#/factories";
 import bcrypt from "bcryptjs";
 
 describe("Funcionarios", () => {
-  beforeEach(async () => {
-    await Truncate();
-  });
+  // beforeEach(async () => {
+  //   await Truncate();
+  // });
 
   it("should cadastre a funcionary with data valid.", async () => {
     const funcionario = await Moock.factory.create("Funcionario");

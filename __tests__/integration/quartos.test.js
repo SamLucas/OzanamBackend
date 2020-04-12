@@ -6,9 +6,9 @@ import faker from "faker";
 import { Truncate } from "#/utils/truncate";
 
 describe("Quartos", () => {
-  beforeEach(async () => {
-    await Truncate();
-  });
+  // beforeEach(async () => {
+  //   await Truncate();
+  // });
 
   const dataBedroom = {
     tipo: true,

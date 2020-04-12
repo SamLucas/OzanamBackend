@@ -2,9 +2,9 @@ import { Quartos } from "@/models";
 import { Truncate } from "#/utils/truncate";
 
 describe("Quartos", () => {
-  beforeEach(async () => {
-    await Truncate();
-  });
+  // beforeEach(async () => {
+  //   await Truncate();
+  // });
 
   it("should create a new bedroom", async () => {
     const quarto = await Quartos.create({

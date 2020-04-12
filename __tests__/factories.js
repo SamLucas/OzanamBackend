@@ -4,10 +4,13 @@ import { Residentes, Quartos, Funcionarios } from "@/models";
 
 const funcionarioFuncao = ["farmaceutico", "enfermeira", "tecnico"];
 
+const defineFunctionFuncionary = () =>
+  funcionarioFuncao[Math.floor(Math.random() * 3)];
+
 factory.define("Funcionario", Funcionarios, {
   nome: faker.name.findName(),
   email: faker.internet.email(),
-  password_hash: faker.internet.password(),
+  password: faker.internet.password(),
   cpf: "233.342.242-30",
   rg: "23.342.242-30",
   sexo: true,
@@ -34,4 +37,4 @@ factory.define("Quartos", Quartos, {
   numero_quarto: faker.random.number()
 });
 
-export default { factory };
+export default { factory, defineFunctionFuncionary };
