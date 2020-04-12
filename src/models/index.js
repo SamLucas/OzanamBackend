@@ -43,9 +43,14 @@ db.Sequelize = Sequelize;
 // Models
 db.Quartos = require("./Quartos")(sequelize, Sequelize);
 db.Residentes = require("./Residentes")(sequelize, Sequelize);
+db.Funcionarios = require("./Funcionarios")(sequelize, Sequelize);
+db.HorarioMedicacoes = require("./HorarioMedicacoes")(sequelize, Sequelize);
 
 // Relations
 db.Residentes.belongsTo(db.Quartos);
 db.Quartos.hasMany(db.Residentes);
+
+db.HorarioMedicacoes.belongsTo(db.Funcionarios);
+db.Funcionarios.hasMany(db.HorarioMedicacoes);
 
 module.exports = db;

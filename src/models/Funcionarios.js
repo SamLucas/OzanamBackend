@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const Funcionarios = sequelize.define(
     "Funcionarios",
     {
@@ -16,9 +16,7 @@ export default (sequelize, DataTypes) => {
       funcao: {
         type: DataTypes.ENUM,
         values: ["farmaceutico", "enfermeira", "tecnico"]
-      },
-      created_at: DataTypes.DATE,
-      updated_at: DataTypes.DATE
+      }
     },
     {
       hooks: {
