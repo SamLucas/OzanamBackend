@@ -18,17 +18,17 @@ describe("Quartos", () => {
     numero_quarto: faker.random.number()
   };
 
-  it("should cadatre bedrooom with data valid.", async () => {
+  it("should cadatre bedroom with data valid.", async () => {
     const response = await Request(app)
-      .post("/bedrooms")
+      .post("/quartos")
       .send(dataBedroom);
 
     expect(response.status).toBe(200);
   });
 
-  it("should not cadatre bedromm with data invalid", async () => {
+  it("should not cadatre bedroom with data invalid", async () => {
     const response = await Request(app)
-      .post("/bedrooms")
+      .post("/quartos")
       .send({
         ...dataBedroom,
         quantidade_cama: null,
@@ -40,7 +40,7 @@ describe("Quartos", () => {
   });
 
   it("should list information about bedroom.", async () => {
-    const response = await Request(app).get("/bedrooms");
+    const response = await Request(app).get("/quartos");
     expect(Array.isArray(response.body)).toBe(true);
   });
 });

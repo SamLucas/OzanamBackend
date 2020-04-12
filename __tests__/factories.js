@@ -1,6 +1,11 @@
 import faker from "faker";
 import { factory } from "factory-girl";
-import { Residentes, Quartos, Funcionarios } from "@/models";
+import { Residentes, Quartos, Funcionarios, Remedios } from "@/models";
+
+// factory.define("Remedio", Remedios, {
+//   nome: faker.name.findName(),
+//   descricao: faker.lorem.paragraphs()
+// });
 
 const funcionarioFuncao = ["farmaceutico", "enfermeira", "tecnico"];
 

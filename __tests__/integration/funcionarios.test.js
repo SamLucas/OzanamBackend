@@ -24,7 +24,7 @@ describe("Funcionarios", () => {
 
   it("should cadastre a functionary with data valid", async () => {
     const response = await Request(app)
-      .post("/functionary")
+      .post("/funcionarios")
       .send(dataFuncionario);
 
     expect(response.status).toBe(200);
@@ -32,7 +32,7 @@ describe("Funcionarios", () => {
 
   it("should not cadastre a functionary with date invalid", async () => {
     const response = await Request(app)
-      .post("/functionary")
+      .post("/funcionarios")
       .send({
         ...dataFuncionario,
         nome: "",
@@ -46,14 +46,14 @@ describe("Funcionarios", () => {
 
   it("should not cadastre a functionary with type function wrong", async () => {
     const response = await Request(app)
-      .post("/functionary")
+      .post("/funcionarios")
       .send({ ...dataFuncionario, funcao: "paciente" });
 
     expect(response.status).toBe(401);
   });
 
   it("should list all functionary", async () => {
-    const response = await Request(app).get("/functionary");
+    const response = await Request(app).get("/funcionarios");
     expect(Array.isArray(response.body)).toBe(true);
   });
 });
