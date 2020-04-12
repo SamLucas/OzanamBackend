@@ -2,13 +2,8 @@ import app from "@/app";
 import Request from "supertest";
 import Moock from "#/factories";
 import faker from "faker";
-import { Truncate } from "#/utils/truncate";
 
 describe("Resisdentes", () => {
-  beforeEach(async () => {
-    await Truncate();
-  });
-
   const dataResident = {
     nome: faker.name.findName(),
     cpf: "233.342.242-30",
@@ -20,6 +15,8 @@ describe("Resisdentes", () => {
 
   it("should cadastre a residents with receive data valid.", async () => {
     const quarto = await Moock.factory.create("Quartos");
+
+    console.log(">>>>>>>>>>>>>>>>>", quarto.id);
 
     const response = await Request(app)
       .post("/residentes")

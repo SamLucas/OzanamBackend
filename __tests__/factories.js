@@ -1,6 +1,20 @@
 import faker from "faker";
 import { factory } from "factory-girl";
-import { Residentes, Quartos } from "@/models";
+import { Residentes, Quartos, Funcionarios } from "@/models";
+
+const funcionarioFuncao = ["farmaceutico", "enfermeira", "tecnico"];
+
+factory.define("Funcionario", Funcionarios, {
+  nome: faker.name.findName(),
+  email: faker.internet.email(),
+  password_hash: faker.internet.password(),
+  cpf: "233.342.242-30",
+  rg: "23.342.242-30",
+  sexo: true,
+  telefone: faker.phone.phoneNumberFormat(),
+  endereco: faker.address.streetAddress(),
+  funcao: funcionarioFuncao[Math.floor(Math.random() * 3)]
+});
 
 factory.define("Residentes", Residentes, {
   nome: faker.name.findName(),
