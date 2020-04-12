@@ -1,8 +1,10 @@
-import { Quartos } from "@/models";
+import { Quartos, Residentes } from "@/models";
 
 class QuartoControllers {
   async index(req, res) {
-    const bedrooms = await Quartos.findAll();
+    const bedrooms = await Quartos.findAll({
+      include: [{ model: Residentes }]
+    });
     return res.json(bedrooms);
   }
 
