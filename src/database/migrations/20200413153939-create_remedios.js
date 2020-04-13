@@ -9,11 +9,16 @@ module.exports = {
         primaryKey: true,
         allowNull: false
       },
-      remedio_info_id: {
-        type: Sequelize.UUID,
+      quantidade: {
+        type: Sequelize.INTEGER,
         allowNull: true
       },
-      unidades_medida_id: {
+      tipo: {
+        type: Sequelize.ENUM,
+        values: ["gota", "comprimido", "miligramas", "gramas"],
+        allowNull: false
+      },
+      remedio_info_id: {
         type: Sequelize.UUID,
         allowNull: true
       },

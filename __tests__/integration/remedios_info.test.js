@@ -5,7 +5,7 @@ import app from "@/app";
 describe("Medicine Information ", () => {
   it("should create a medicine with data valid.", async () => {
     const response = await Request(app)
-      .post("/remedios")
+      .post("/remedios/info")
       .send({
         nome: faker.name.findName(),
         descricao: faker.lorem.paragraphs()
@@ -16,7 +16,7 @@ describe("Medicine Information ", () => {
 
   it("should not create a medicine without data.", async () => {
     const response = await Request(app)
-      .post("/remedios")
+      .post("/remedios/info")
       .send({
         nome: "",
         descricao: ""
@@ -26,7 +26,7 @@ describe("Medicine Information ", () => {
   });
 
   it("should list data the medications.", async () => {
-    const response = await Request(app).get("/remedios");
+    const response = await Request(app).get("/remedios/info");
     expect(Array.isArray(response.body)).toBe(true);
   });
 });
