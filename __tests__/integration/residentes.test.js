@@ -1,6 +1,6 @@
 import app from "@/app";
 import Request from "supertest";
-import Moock from "#/factories";
+import Moock from "../factories";
 import faker from "faker";
 
 import { Quartos } from "@/models";

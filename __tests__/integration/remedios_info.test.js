@@ -2,7 +2,7 @@ import Request from "supertest";
 import faker from "faker";
 import app from "@/app";
 
-describe("Medicine", () => {
+describe("Medicine Information ", () => {
   it("should create a medicine with data valid.", async () => {
     const response = await Request(app)
       .post("/remedios")

@@ -1,5 +1,5 @@
 import { Truncate } from "#/utils/truncate";
-import Moock from "#/factories";
+import Moock from "../factories";
 import bcrypt from "bcryptjs";
 import app from "@/app";
 import Request from "supertest";

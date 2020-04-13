@@ -1,8 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
-  const Remedios = sequelize.define("Remedios", {
+  const RemediosInfos = sequelize.define("RemediosInfos", {
     nome: DataTypes.STRING,
     descricao: DataTypes.TEXT
   });
 
-  return Remedios;
+  return RemediosInfos;
 };
