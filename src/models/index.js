@@ -45,6 +45,8 @@ db.Quartos = require("./Quartos")(sequelize, Sequelize);
 db.Residentes = require("./Residentes")(sequelize, Sequelize);
 db.Funcionarios = require("./Funcionarios")(sequelize, Sequelize);
 db.HorarioMedicacoes = require("./HorarioMedicacoes")(sequelize, Sequelize);
+db.Remedios = require("./Remedios")(sequelize, Sequelize);
+db.RemediosInfos = require("./RemediosInfos")(sequelize, Sequelize);
 db.HorariosFuncionarios = require("./HorariosFuncionarios")(
   sequelize,
   Sequelize
@@ -59,5 +61,8 @@ db.Funcionarios.hasMany(db.HorariosFuncionarios);
 
 db.HorariosFuncionarios.belongsTo(db.HorarioMedicacoes);
 db.HorarioMedicacoes.hasMany(db.HorariosFuncionarios);
+
+db.Remedios.belongsTo(db.RemediosInfos);
+db.RemediosInfos.hasMany(db.Remedios);
 
 module.exports = db;

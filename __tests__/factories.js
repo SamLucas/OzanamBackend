@@ -4,21 +4,20 @@ import {
   Residentes,
   Quartos,
   Funcionarios,
-  Remedios,
-  HorarioMedicacoes
+  HorarioMedicacoes,
+  RemediosInfos
 } from "@/models";
 
-// factory.define("Remedio", Remedios, {
-//   nome: faker.name.findName(),
-//   descricao: faker.lorem.paragraphs()
-// });
+factory.define("RemedioInfo", RemediosInfos, {
+  nome: faker.fake("{{name.lastName}}, {{name.firstName}} {{name.suffix}}"),
+  descricao: faker.lorem.paragraphs()
+});
 
 factory.define("HorarioMedicao", HorarioMedicacoes, {
   horario: new Date().getTime()
 });
 
 const funcionarioFuncao = ["farmaceutico", "enfermeira", "tecnico"];
-
 const defineFunctionFuncionary = () =>
   funcionarioFuncao[Math.floor(Math.random() * 3)];
 

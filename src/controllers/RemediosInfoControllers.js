@@ -11,6 +11,12 @@ class RemediosControllers {
 
     if (!nome || !descricao) return res.status(401).send();
 
+    const nameSuposted = await RemediosInfos.findOne({ where: { nome } });
+    if (nameSuposted)
+      return res
+        .status(401)
+        .json({ message: "Name of medicine repeat.", data: nameSuposted });
+
     const remedio = await RemediosInfos.create({
       nome,
       descricao
