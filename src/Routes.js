@@ -7,6 +7,7 @@ import HorarioMedicacoesController from "@/controllers/HorarioMedicacoesControll
 import RemediosController from "@/controllers/RemediosController";
 import RemediosInfoControllers from "@/controllers/RemediosInfoControllers";
 import HorarioMedicacoesFuncionarioController from "@/controllers/HorarioMedicacoesFuncionarioController";
+import MedicacaoInfoController from "@/controllers/MedicacaoInfoController";
 
 const routes = Router();
 
@@ -19,7 +20,7 @@ routes.post("/quartos", QuartoControllers.store);
 routes.post("/funcionarios", FunctionarioController.store);
 routes.get("/funcionarios", FunctionarioController.index);
 
-routes.post("/medication_time", HorarioMedicacoesController.store);
+routes.post("/medicacao/horario", HorarioMedicacoesController.store);
 
 routes.post("/remedios/info", RemediosInfoControllers.store);
 routes.get("/remedios/info", RemediosInfoControllers.index);
@@ -27,8 +28,10 @@ routes.get("/remedios/info", RemediosInfoControllers.index);
 routes.post("/remedios", RemediosController.store);
 
 routes.post(
-  "/medication_time/funcionario",
+  "/medicacao/funcionario/horario",
   HorarioMedicacoesFuncionarioController.store
 );
+
+routes.post("/medicacao/info", MedicacaoInfoController.store);
 
 export default routes;

@@ -18,14 +18,14 @@ describe("Resisdentes", () => {
 
     const quarto = await Moock.factory.create("Quartos");
 
-    console.log(">>>>>>>>>>>>>>>>>", quarto.id);
-    console.log(">>>>>>>>>>>>>>>>>>>", await Quartos.findAll());
+    // console.log(">>>>>>>>>>>>>>>>>", quarto.id);
+    // console.log(">>>>>>>>>>>>>>>>>>>", await Quartos.findAll());
 
     const response = await Request(app)
       .post("/residentes")
       .send({ ...dataResident, quarto_id: quarto.id });
 
-    console.log(">>>>>>>>>>>>>>>>>>>", response.body);
+    // console.log(">>>>>>>>>>>>>>>>>>>", response.body);
 
     expect(response.status).toBe(200);
   });

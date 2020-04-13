@@ -1,15 +1,10 @@
-import { Truncate } from "#/utils/truncate";
-import Moock from "../factories";
-import bcrypt from "bcryptjs";
-import app from "@/app";
 import Request from "supertest";
 import faker from "faker";
+import app from "@/app";
+
+import { defineFunctionFuncionary } from "#/utils/generateData";
 
 describe("Funcionarios", () => {
-  // beforeEach(async () => {
-  //   await Truncate();
-  // });
-
   const dataFuncionario = {
     nome: faker.name.findName(),
     email: faker.internet.email(),
@@ -19,7 +14,7 @@ describe("Funcionarios", () => {
     sexo: true,
     telefone: faker.phone.phoneNumberFormat(),
     endereco: faker.address.streetAddress(),
-    funcao: Moock.defineFunctionFuncionary()
+    funcao: defineFunctionFuncionary()
   };
 
   it("should cadastre a functionary with data valid", async () => {

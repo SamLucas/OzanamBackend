@@ -5,8 +5,19 @@ import {
   Quartos,
   Funcionarios,
   HorarioMedicacoes,
-  RemediosInfos
+  RemediosInfos,
+  Remedios
 } from "@/models";
+
+import {
+  defineTypeMedicine,
+  defineFunctionFuncionary
+} from "#/utils/generateData";
+
+factory.define("Remedio", Remedios, {
+  quantidade: 40,
+  tipo: defineTypeMedicine()
+});
 
 factory.define("RemedioInfo", RemediosInfos, {
   nome: faker.fake("{{name.lastName}}, {{name.firstName}} {{name.suffix}}"),
@@ -17,10 +28,6 @@ factory.define("HorarioMedicao", HorarioMedicacoes, {
   horario: new Date().getTime()
 });
 
-const funcionarioFuncao = ["farmaceutico", "enfermeira", "tecnico"];
-const defineFunctionFuncionary = () =>
-  funcionarioFuncao[Math.floor(Math.random() * 3)];
-
 factory.define("Funcionario", Funcionarios, {
   nome: faker.name.findName(),
   email: faker.internet.email(),
@@ -30,7 +37,7 @@ factory.define("Funcionario", Funcionarios, {
   sexo: true,
   telefone: faker.phone.phoneNumberFormat(),
   endereco: faker.address.streetAddress(),
-  funcao: funcionarioFuncao[Math.floor(Math.random() * 3)]
+  funcao: defineFunctionFuncionary()
 });
 
 factory.define("Residentes", Residentes, {

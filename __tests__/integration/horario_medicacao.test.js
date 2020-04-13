@@ -4,7 +4,7 @@ import Request from "supertest";
 describe("Horario Medicacao", () => {
   it("should create new medication time.", async () => {
     const response = await Request(app)
-      .post("/medication_time")
+      .post("/medicacao/horario")
       .send({
         horario: new Date().getTime()
       });
@@ -14,7 +14,7 @@ describe("Horario Medicacao", () => {
 
   it("should no create new medication time without time defined.", async () => {
     const response = await Request(app)
-      .post("/medication_time")
+      .post("/medicacao/horario")
       .send();
     expect(response.status).toBe(401);
   });

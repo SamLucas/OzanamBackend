@@ -8,7 +8,7 @@ describe("Times functionry", () => {
     const time = await Mook.factory.create("HorarioMedicao");
 
     const response = await Request(app)
-      .post("/medication_time/funcionario")
+      .post("/medicacao/funcionario/horario")
       .send({ funcionario_id: funcionario.id, times: [time.id] });
 
     expect(Array.isArray(response.body)).toBe(true);
@@ -17,7 +17,7 @@ describe("Times functionry", () => {
 
   it("should not create a new relation without data valid.", async () => {
     const response = await Request(app)
-      .post("/medication_time/funcionario")
+      .post("/medicacao/funcionario/horario")
       .send({ times: null, funcionario_id: null });
 
     expect(response.status).toBe(401);
@@ -27,7 +27,7 @@ describe("Times functionry", () => {
     const times = ["1", "2", "3"];
 
     const response = await Request(app)
-      .post("/medication_time/funcionario")
+      .post("/medicacao/funcionario/horario")
       .send({ funcionario_id: -1, times });
 
     expect(response.status).toBe(401);
@@ -36,7 +36,7 @@ describe("Times functionry", () => {
   it("should not create a new relation without employees.", async () => {
     const times = ["1", "2", "3"];
     const response = await Request(app)
-      .post("/medication_time/funcionario")
+      .post("/medicacao/funcionario/horario")
       .send({ times });
 
     expect(response.status).toBe(401);
@@ -44,7 +44,7 @@ describe("Times functionry", () => {
 
   it("should not create when times is not array.", async () => {
     const response = await Request(app)
-      .post("/medication_time/funcionario")
+      .post("/medicacao/funcionario/horario")
       .send({ times: "asd", funcionario_id: 1 });
 
     expect(response.status).toBe(401);
@@ -55,7 +55,7 @@ describe("Times functionry", () => {
     const times = [];
 
     const response = await Request(app)
-      .post("/medication_time/funcionario")
+      .post("/medicacao/funcionario/horario")
       .send({ funcionario_id: funcionario.id, times });
 
     expect(response.status).toBe(401);
@@ -66,7 +66,7 @@ describe("Times functionry", () => {
     const times = ["13"];
 
     const response = await Request(app)
-      .post("/medication_time/funcionario")
+      .post("/medicacao/funcionario/horario")
       .send({ funcionario_id: funcionario.id, times });
 
     expect(response.status).toBe(401);
