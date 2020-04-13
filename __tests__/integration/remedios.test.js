@@ -39,18 +39,49 @@ describe("Medicine", () => {
     expect(response.status).toBe(401);
   });
 
-  // it("should not cadastre medicine with type of medicine invalid.", async () => {
-  // const remedioInfo = await Moock.factory.create("RemedioInfo");
-  // console.log(remedioInfo);
+  it("should not cadastre medicine with type of medicine invalid.", async () => {
+    const numberRandom = Math.random();
+    const nome = `Buscopan${numberRandom}`;
 
-  // const response = await Request(app)
-  //   .post("/remedios")
-  //   .send({
-  //     quantidade: 40,
-  //     tipo: "remedio",
-  //     remedio_info_id: remedioInfo.id
-  //   });
+    const remedioInfo = await Moock.factory.create("RemedioInfo", { nome });
 
-  //   expect(401).toBe(401);
-  // });
+    const response = await Request(app)
+      .post("/remedios")
+      .send({
+        quantidade: 40,
+        tipo: "remedio",
+        remedio_info_id: remedioInfo.id
+      });
+
+    expect(response.status).toBe(401);
+  });
+
+  it("should not cadastre medicine with quantility smaller or equals is 0.", async () => {
+    const numberRandom = Math.random();
+    const nome = `Buscopan${numberRandom}`;
+
+    const remedioInfo = await Moock.factory.create("RemedioInfo", { nome });
+
+    const DataRepet = {
+      tipo: "gota",
+      remedio_info_id: remedioInfo.id
+    };
+
+    const responseEqualsZero = await Request(app)
+      .post("/remedios")
+      .send({
+        quantidade: 0,
+        ...DataRepet
+      });
+
+    const responseNegative = await Request(app)
+      .post("/remedios")
+      .send({
+        quantidade: -1,
+        ...DataRepet
+      });
+
+    expect(responseNegative.status).toBe(401);
+    expect(responseEqualsZero.status).toBe(401);
+  });
 });
