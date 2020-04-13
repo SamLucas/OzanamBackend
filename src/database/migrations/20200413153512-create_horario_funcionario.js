@@ -2,16 +2,20 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("horario_medicacoes", {
+    return queryInterface.createTable("horario_funcionarios", {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
         allowNull: false
       },
-      horario: {
-        type: Sequelize.TIME,
-        allowNull: false
+      funcionario_id: {
+        type: Sequelize.UUID,
+        allowNull: true
+      },
+      horario_medicacao_id: {
+        type: Sequelize.UUID,
+        allowNull: true
       },
       created_at: {
         type: Sequelize.DATE,
@@ -25,6 +29,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("horario_medicacoes");
+    return queryInterface.dropTable("horario_funcionarios");
   }
 };

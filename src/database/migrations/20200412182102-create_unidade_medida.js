@@ -2,21 +2,17 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("remedios", {
+    return queryInterface.createTable("unidades_medidas", {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
         allowNull: false
       },
-      nome: {
-        type: Sequelize.STRING,
-        unique: true,
-        allowNull: true
-      },
-      descricao: {
-        type: Sequelize.TEXT,
-        allowNull: true
+      tipo: {
+        type: Sequelize.ENUM,
+        values: ["gota", "comprimido", "miligramas", "gramas"],
+        allowNull: false
       },
       created_at: {
         type: Sequelize.DATE,
@@ -30,6 +26,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("remedios");
+    return queryInterface.dropTable("unidades_medidas");
   }
 };
