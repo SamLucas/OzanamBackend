@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM,
       values: ["gota", "comprimido", "miligramas", "gramas"]
     },
-    remedio_info_id: DataTypes.UUID
+    remedios_info_id: DataTypes.UUID
   });
 
   return Remedios;

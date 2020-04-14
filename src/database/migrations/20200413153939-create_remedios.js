@@ -18,7 +18,7 @@ module.exports = {
         values: ["gota", "comprimido", "miligramas", "gramas"],
         allowNull: false
       },
-      remedio_info_id: {
+      remedios_info_id: {
         type: Sequelize.UUID,
         allowNull: true
       },

@@ -6,13 +6,13 @@ class RemediosController {
   }
 
   async store(req, res) {
-    const { quantidade, tipo, remedio_info_id } = req.body;
+    const { quantidade, tipo, remedios_info_id } = req.body;
 
-    if (!quantidade || !tipo || !remedio_info_id)
+    if (!quantidade || !tipo || !remedios_info_id)
       return res.status(401).json({ message: "Data Incomplete or null." });
 
     const DataRemedioInfo = await RemediosInfos.findOne({
-      where: { id: remedio_info_id }
+      where: { id: remedios_info_id }
     });
 
     if (!DataRemedioInfo)
@@ -31,7 +31,7 @@ class RemediosController {
     const remedio = await Remedios.create({
       quantidade,
       tipo,
-      remedio_info_id
+      remedios_info_id
     });
 
     return res.json(remedio);

@@ -13,7 +13,7 @@ describe("Medicine", () => {
       .send({
         quantidade: 40,
         tipo: "gota",
-        remedio_info_id: remedioInfo.id
+        remedios_info_id: remedioInfo.id
       });
 
     expect(response.body).toHaveProperty("id");
@@ -33,7 +33,7 @@ describe("Medicine", () => {
       .send({
         quantidade: 40,
         tipo: "gota",
-        remedio_info_id: -1
+        remedios_info_id: -1
       });
 
     expect(response.status).toBe(401);
@@ -50,7 +50,7 @@ describe("Medicine", () => {
       .send({
         quantidade: 40,
         tipo: "remedio",
-        remedio_info_id: remedioInfo.id
+        remedios_info_id: remedioInfo.id
       });
 
     expect(response.status).toBe(401);
@@ -64,7 +64,7 @@ describe("Medicine", () => {
 
     const DataRepet = {
       tipo: "gota",
-      remedio_info_id: remedioInfo.id
+      remedios_info_id: remedioInfo.id
     };
 
     const responseEqualsZero = await Request(app)
